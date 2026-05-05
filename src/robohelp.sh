@@ -152,7 +152,6 @@ check_and_update() {
 
 # Function to determine distro and set commands
 det_release() {
-    # Check for macOS first
     if [ "$(uname -s)" == "Darwin" ]; then
         distro="macos"
     elif command -v lsb_release &>/dev/null; then
@@ -163,7 +162,7 @@ det_release() {
 	    distro="unknown"
     fi
 
-    # Make distro lowercase
+    # Convert to lowercase
     shopt -s nocasematch 
 
     case "$distro" in
